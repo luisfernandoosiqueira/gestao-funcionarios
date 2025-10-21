@@ -1,7 +1,30 @@
-<br>
-<h2>Bem-vindo(a) ao Meu Primeiro Projeto</h2>
-<br>
+<p-card class="mt-3">
+  <div class="flex align-items-center gap-2">
+    <i class="pi pi-briefcase text-xl"></i>
+    <h2 class="m-0">Bem-vindo(a) à Gestão de Funcionários</h2>
+  </div>
 
-<p>Use o menu acima para acessar o cadastro e a lista de contatos.</p>
+  <p class="mt-3 mb-0">
+    Use o menu acima ou os atalhos abaixo para acessar o <b>cadastro</b> e a <b>lista</b> de funcionários.
+  </p>
 
+  <p-divider class="my-4"></p-divider>
 
+  <div class="flex gap-2 flex-wrap">
+    <a pButton routerLink="/cadastro" icon="pi pi-user-plus" label="Novo Funcionário"></a>
+    <a pButton routerLink="/lista" icon="pi pi-list-check" label="Listar Funcionários" severity="secondary"></a>
+  </div>
+
+  <p-divider class="my-4"></p-divider>
+
+  <div class="grid">
+    <div class="col-12 md:col-6">
+      <div class="text-600 text-sm">Dica</div>
+      <div class="text-900">Você pode filtrar por <b>cargo</b> e <b>status</b> na tela de lista.</div>
+    </div>
+    <div class="col-12 md:col-6">
+      <div class="text-600 text-sm">Regras do sistema</div>
+      <div class="text-900">E-mail é único, não é permitido reduzir salário e é possível inativar/reativar via API.</div>
+    </div>
+  </div>
+</p-card>

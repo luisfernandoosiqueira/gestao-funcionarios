@@ -1,14 +1,24 @@
 <!-- Filtros -->
 <div class="card flex align-items-center gap-3 flex-wrap p-3">
-  <input pInputText placeholder="Cargo" [(ngModel)]="filtroCargo" (keyup.enter)="carregar()">
+  <!-- Cargo -->
+  <p-dropdown
+    [options]="opcoesCargo"
+    [(ngModel)]="filtroCargo"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Cargo (TI)"
+    [showClear]="true"
+    class="w-15rem">
+  </p-dropdown>
 
+  <!-- Status -->
   <p-dropdown
     [options]="opcoesAtivo"
     [(ngModel)]="filtroAtivo"
     optionLabel="label"
     optionValue="value"
     placeholder="Status"
-    (onChange)="carregar()">
+    class="w-12rem">
   </p-dropdown>
 
   <button pButton icon="pi pi-search" label="Buscar" (click)="carregar()"></button>
@@ -35,7 +45,7 @@
         <th>Salário</th>
         <th>Admissão</th>
         <th>Status</th>
-        <th style="width:22rem;">Ações</th>
+        <th style="width:18rem;">Ações</th>
       </tr>
     </ng-template>
 
@@ -49,7 +59,6 @@
         <td>{{ f.dataAdmissao }}</td>
         <td>{{ f.ativo ? 'Ativo' : 'Inativo' }}</td>
         <td class="flex gap-2 flex-wrap">
-          <button pButton label="Visualizar" icon="pi pi-eye" size="small" (click)="visualizar(f.id)"></button>
           <button pButton label="Editar" icon="pi pi-pencil" size="small" (click)="editar(f.id)"></button>
           <button pButton label="Inativar" icon="pi pi-ban" size="small" [disabled]="!f.ativo" (click)="inativar(f.id)"></button>
           <button pButton label="Excluir" icon="pi pi-trash" severity="danger" size="small" (click)="excluir(f.id)"></button>
@@ -58,9 +67,7 @@
     </ng-template>
 
     <ng-template pTemplate="emptymessage">
-      <tr>
-        <td colspan="8">Nenhum funcionário cadastrado.</td>
-      </tr>
+      <tr><td colspan="8">Nenhum funcionário carregado. Use os filtros e clique em “Buscar”.</td></tr>
     </ng-template>
   </p-table>
 </div>

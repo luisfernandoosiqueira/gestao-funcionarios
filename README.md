@@ -1,59 +1,72 @@
-# MeuPrimeiroProjeto
+# 💻 Frontend — Gestão de Funcionários
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Aplicação **Angular 19** desenvolvida para consumo da API de **Gestão de Funcionários**, permitindo visualizar, cadastrar, editar, inativar e excluir registros de forma simples e moderna.
 
-## Development server
+---
 
-To start a local development server, run:
+## ⚙️ Tecnologias utilizadas
 
-```bash
-ng serve
+* **Angular 19 (standalone components)**
+* **PrimeNG + Tema Aura**
+* **TypeScript / HTML / SCSS**
+* **RxJS e HttpClient**
+
+---
+
+## 📚 Funcionalidades principais
+
+* Tela inicial com mensagem de boas-vindas
+* **Listagem de funcionários** com filtros por cargo e status (ativo/inativo)
+* **Cadastro e edição** com validações básicas
+* **Seleção de data** de admissão via componente de calendário
+* **Filtros dinâmicos** e busca manual
+* **Feedbacks visuais** e botões com ícones do PrimeNG
+
+---
+
+## 📁 Estrutura do projeto
+
+```
+src/app/
+ ├─ navbar/            → Menu superior de navegação
+ ├─ home/              → Tela inicial
+ ├─ lista/             → Listagem e filtros
+ ├─ cadastro/          → Formulário de cadastro/edição
+ ├─ service/           → FuncionariosService (integração com API)
+ ├─ app.routes.ts      → Rotas principais
+ └─ app.component.*    → Componente raiz
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🔗 Integração com o backend
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* A API consumida está em **[http://localhost:8080/api/funcionarios](http://localhost:8080/api/funcionarios)**
+* CORS já configurado no backend (`@CrossOrigin("*")`)
+* O formato de data utilizado é **`dd/MM/yyyy`**
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ▶️ Como executar o projeto
 
-```bash
-ng generate --help
-```
+1. Certifique-se de ter o **Node.js 18+** e o **Angular CLI 19** instalados.
+2. No terminal, dentro da pasta do projeto:
 
-## Building
+   ```bash
+   npm install
+   ng serve
+   ```
+3. Acesse o app em **[http://localhost:4200](http://localhost:4200)**
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🧠 Observações
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* O projeto utiliza **PrimeNG** para todos os componentes visuais.
+* Os **comboboxes** trazem opções pré-definidas de cargos na área de TI.
+* Os dados exibidos dependem do backend estar em execução.
+* O botão **“Buscar”** carrega os resultados conforme os filtros selecionados.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+> Projeto desenvolvido para fins acadêmicos, integrado ao backend **Gestão de Funcionários API (Spring Boot 3)**.
