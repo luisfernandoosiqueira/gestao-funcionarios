@@ -1,0 +1,66 @@
+<!-- Filtros -->
+<div class="card flex align-items-center gap-3 flex-wrap p-3">
+  <input pInputText placeholder="Cargo" [(ngModel)]="filtroCargo" (keyup.enter)="carregar()">
+
+  <p-dropdown
+    [options]="opcoesAtivo"
+    [(ngModel)]="filtroAtivo"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Status"
+    (onChange)="carregar()">
+  </p-dropdown>
+
+  <button pButton icon="pi pi-search" label="Buscar" (click)="carregar()"></button>
+
+  <div class="flex-1"></div>
+
+  <button pButton label="Novo Funcionário" icon="pi pi-user-plus" [routerLink]="['/cadastro']"></button>
+</div>
+
+<!-- Tabela -->
+<div class="card mt-3">
+  <p-table
+    [value]="funcionarios"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    [loading]="loading"
+    styleClass="p-datatable-sm">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:6rem;">ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Admissão</th>
+        <th>Status</th>
+        <th style="width:22rem;">Ações</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-f>
+      <tr>
+        <td>{{ f.id }}</td>
+        <td>{{ f.nome }}</td>
+        <td>{{ f.email }}</td>
+        <td>{{ f.cargo }}</td>
+        <td>{{ f.salario | number:'1.2-2' }}</td>
+        <td>{{ f.dataAdmissao }}</td>
+        <td>{{ f.ativo ? 'Ativo' : 'Inativo' }}</td>
+        <td class="flex gap-2 flex-wrap">
+          <button pButton label="Visualizar" icon="pi pi-eye" size="small" (click)="visualizar(f.id)"></button>
+          <button pButton label="Editar" icon="pi pi-pencil" size="small" (click)="editar(f.id)"></button>
+          <button pButton label="Inativar" icon="pi pi-ban" size="small" [disabled]="!f.ativo" (click)="inativar(f.id)"></button>
+          <button pButton label="Excluir" icon="pi pi-trash" severity="danger" size="small" (click)="excluir(f.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">Nenhum funcionário cadastrado.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

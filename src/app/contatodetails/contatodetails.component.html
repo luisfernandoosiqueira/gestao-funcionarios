@@ -1,0 +1,19 @@
+<p-card header="Detalhes do Contato" styleClass="mb-3">
+  <ng-container *ngIf="contato; else notfound">
+    <p><strong>ID:</strong> {{ contato.id }}</p>
+    <p><strong>Nome:</strong> {{ contato.nome }}</p>
+    <p><strong>Telefone:</strong> {{ contato.telefone }}</p>
+
+    <div style="margin-top:12px;">
+      <p-button label="Voltar para a lista" icon="pi pi-list" [routerLink]="['/listagem']"></p-button>
+    </div>
+  </ng-container>
+</p-card>
+
+<ng-template #notfound>
+  <p-card header="Contato não encontrado">
+    <div style="margin-top:12px;">
+      <p-button label="Voltar para a lista" icon="pi pi-list" [routerLink]="['/listagem']" severity="secondary"></p-button>
+    </div>
+  </p-card>
+</ng-template>

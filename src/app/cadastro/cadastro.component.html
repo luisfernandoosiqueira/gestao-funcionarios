@@ -1,0 +1,34 @@
+
+
+<div class="mb-4 p-8">
+    <p-card>
+
+<h2>Cadastro de Contatos</h2>
+
+  <br />
+  
+  
+ <label for="nome">Nome: &nbsp;&nbsp;&nbsp;   </label>
+  <input id="nome" type="text" pInputText [(ngModel)]="nome" />
+
+  <br /><br />
+
+  <label for="telefone">Telefone: </label>
+  <input id="telefone" type="text" pInputText [(ngModel)]="telefone" />
+
+  <br />
+  <br />
+  <br />
+
+  <!-- Botões alinhados lado a lado -->
+  <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+    <p-button [label]="labelNovoContato" icon="pi pi-save" (click)="novoContato()"></p-button>
+  
+  </div>
+
+  <br /><br />
+  <p *ngIf="nome">Digitando: {{ nome }}</p>
+    </p-card>
+</div>
+
+
